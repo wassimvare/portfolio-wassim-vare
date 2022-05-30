@@ -5,10 +5,12 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "pwa-msedge",
+            "name": "Launch Chrome",
             "request": "launch",
-            "name": "Open index.html",
-            "file": "c:\\Users\\Wassim.VARE\\Desktop\\portfolio\\iPortfolio\\index.html"
-        }
+            "type": "chrome",
+            "url": "http://localhost:8080",
+            "webRoot": "c:\\Users\\Wassim.VARE\\Desktop\\portfolio\\iPortfolio\\index.html"
+        },
+        
     ]
 }
