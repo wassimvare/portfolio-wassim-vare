@@ -8,8 +8,8 @@
             "name": "Launch Edge",
             "request": "launch",
             "type": "msedge",
-            "url": "http://localhost:8080",
-            "webRoot": "D:/wassim vare/portfolio/iPortfolio/index.html"
+            "url": "file:///C:/Users/varew/OneDrive/Bureau/porto/iPortfolio/index.html",
+            "webRoot": "D:/wassim vare/porto/iPortfolio/index.html"
         }
        
        ,
