@@ -1,0 +1,9 @@
+MISE À JOUR DU PORTFOLIO GITHUB
+
+1. Décompresse ce ZIP.
+2. Dans ton dépôt portfolio-wassim-vare, supprime ou renomme l'ancien dossier iPortfolio.
+3. Copie le nouveau dossier iPortfolio contenu dans ce ZIP à la racine du dépôt.
+4. Fais un commit puis un push sur la branche utilisée par GitHub Pages.
+
+Adresse du site :
+https://wassimvare.github.io/portfolio-wassim-vare/iPortfolio/index.html
