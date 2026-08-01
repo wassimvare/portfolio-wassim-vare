@@ -43,3 +43,7 @@ CORRECTION VISUELS ANCIEN SITE
 
 
 Correction TIBCO : la page utilise maintenant les fichiers séparés de l’ancien site (photo du bâtiment et logos), et non une capture d’écran complète.
+
+
+CORRECTION IMAGES HISTORIQUES
+Les images Ty’bulles, STCOM, GSB et HarmoCCF utilisent maintenant une version historique immuable du dépôt GitHub. Elles ne dépendent plus des fichiers supprimés du dossier iPortfolio actuel.
