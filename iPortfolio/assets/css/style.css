@@ -483,3 +483,74 @@ p { margin-top: 0; }
 .assignment-list strong { font-size:.88rem; line-height:1.35; }
 .assignment-list.compact { margin:0; }
 .assignment-list.compact > div { padding:12px 14px; }
+
+.client-cloud { margin: 18px 0 20px; }
+.intervention-scope { margin: 28px 0; padding: 22px; border: 1px solid var(--border); border-radius: 18px; background: rgba(94, 214, 255, .045); }
+.intervention-scope h3 { margin-bottom: 8px; }
+.scope-chips { margin-top: 14px; }
+.scope-note { margin-top: 14px; }
+
+/* 2026 verified scope metrics and local legacy visuals */
+.scope-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 22px 0 6px;
+}
+.scope-metrics > div {
+  min-width: 0;
+  padding: 14px 12px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--surface) 86%, var(--primary) 4%);
+}
+.scope-metrics strong {
+  display: block;
+  color: var(--primary);
+  font-size: 1.45rem;
+  line-height: 1;
+}
+.scope-metrics span {
+  display: block;
+  margin-top: 7px;
+  color: var(--muted);
+  font-size: .68rem;
+  font-weight: 800;
+  line-height: 1.3;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+.scope-metrics-stacked { grid-template-columns: 1fr; margin-bottom: 14px; }
+.scope-metrics-stacked > div { display: grid; grid-template-columns: 48px 1fr; align-items: center; gap: 8px; }
+.scope-metrics-stacked span { margin-top: 0; }
+.metric-note { margin: 0; color: var(--muted); font-size: .76rem; line-height: 1.5; }
+.gallery-stage-legacy {
+  grid-template-columns: minmax(0, 1fr);
+  min-height: 520px;
+  padding: 16px;
+  background: #07111f;
+}
+.gallery-stage-legacy .gallery-open {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  min-height: 488px;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #eef2f5;
+}
+.gallery-stage-legacy .legacy-main {
+  width: 100%;
+  height: 100%;
+  max-height: 680px;
+  object-fit: contain;
+  object-position: center;
+}
+.gallery-stage-stcom-local .gallery-open { background: #fff; }
+.stcom-local-main { object-position: center top !important; }
+@media (max-width: 680px) {
+  .scope-metrics { grid-template-columns: 1fr; }
+  .scope-metrics-stacked > div { grid-template-columns: 42px 1fr; }
+  .gallery-stage-legacy { min-height: 360px; padding: 10px; }
+  .gallery-stage-legacy .gallery-open { min-height: 338px; }
+}
