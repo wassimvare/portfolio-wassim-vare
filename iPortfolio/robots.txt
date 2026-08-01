@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://wassimvare.github.io/portfolio-wassim-vare/iPortfolio/sitemap.xml
