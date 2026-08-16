@@ -1,0 +1,50 @@
+(() => {
+  const $ = s => document.querySelector(s); const $$ = s => [...document.querySelectorAll(s)];
+  const rarityOrder = {Commun:1,Rare:2,Épique:3,Légendaire:4,Mythique:5};
+  const styles = {
+    Commun:['linear-gradient(135deg,#4b5563,#9aa8b7)','rgba(160,174,192,.24)'],
+    Rare:['linear-gradient(135deg,#155e75,#67e8f9)','rgba(103,232,249,.32)'],
+    Épique:['linear-gradient(135deg,#5b21b6,#c084fc)','rgba(192,132,252,.34)'],
+    Légendaire:['linear-gradient(135deg,#b45309,#fde68a)','rgba(253,230,138,.36)'],
+    Mythique:['linear-gradient(135deg,#312e81,#7c3aed 45%,#ec4899)','rgba(236,72,153,.38)']
+  };
+  const catalog = [
+    {id:'voidframe001',name:'VOIDFRAME // 001',type:'Frame',rarity:'Mythique',base:12200,max:1000,trend:8.7},
+    {id:'auroraDrift',name:'AURORA DRIFT',type:'Trail',rarity:'Légendaire',base:6800,max:3500,trend:4.1},
+    {id:'sunforge',name:'SUNFORGE CORE',type:'Core Skin',rarity:'Légendaire',base:5900,max:5000,trend:-1.8},
+    {id:'neonFang',name:'NEON FANG',type:'Frame',rarity:'Épique',base:2450,max:16000,trend:2.2},
+    {id:'phaseBloom',name:'PHASE BLOOM',type:'Goal FX',rarity:'Épique',base:3100,max:12000,trend:6.4},
+    {id:'ghostline',name:'GHOSTLINE',type:'Trail',rarity:'Rare',base:980,max:50000,trend:-0.7},
+    {id:'hyperion',name:'HYPERION',type:'Banner',rarity:'Rare',base:720,max:80000,trend:1.4},
+    {id:'ionDust',name:'ION DUST',type:'Trail',rarity:'Commun',base:240,max:null,trend:0.3},
+    {id:'prismNode',name:'PRISM NODE',type:'Core Skin',rarity:'Épique',base:2750,max:20000,trend:3.8},
+    {id:'blackSignal',name:'BLACK SIGNAL',type:'Banner',rarity:'Mythique',base:15800,max:666,trend:12.6},
+    {id:'voltHex',name:'VOLT HEX',type:'Frame',rarity:'Rare',base:1150,max:60000,trend:-2.1},
+    {id:'novaPulse',name:'NOVA PULSE',type:'Goal FX',rarity:'Légendaire',base:7900,max:3000,trend:9.3}
+  ];
+  const defaults = {credits:4200,shards:12,inventory:[{id:'ionDust',serial:49381,wins:0,owners:1},{id:'ghostline',serial:18402,wins:0,owners:2},{id:'voltHex',serial:44210,wins:0,owners:1}],matches:0,wins:0,goals:0,trades:0,xp:0,history:['Bienvenue dans RIFT//EXCHANGE.'],placements:0};
+  let state = load(); let marketTick=0; let offer=[]; let rivalOffer=[];
+  function load(){try{return {...defaults,...JSON.parse(localStorage.getItem('riftExchangeSave')||'{}')}}catch{return structuredClone(defaults)}}
+  function save(){localStorage.setItem('riftExchangeSave',JSON.stringify(state)); renderAll()}
+  function itemById(id){return catalog.find(i=>i.id===id)}
+  function price(item){const wave=Math.sin(marketTick*.37+catalog.indexOf(item))*0.035;return Math.max(25,Math.round(item.base*(1+item.trend/100+wave)))}
+  function toast(t){const el=$('#toast');el.textContent=t;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),2200)}
+  function rarityClass(r){return r==='Mythique'?'mythic':r==='Légendaire'?'legendary':r==='Épique'?'epic':r==='Rare'?'rare':'common'}
+  function styleVars(item){const s=styles[item.rarity];return `--itemGradient:${s[0]};--itemGlow:${s[1]}`}
+  function nav(view){$$('.view').forEach(v=>v.classList.remove('active'));$('#view-'+view).classList.add('active');$$('.nav-btn').forEach(b=>b.classList.toggle('active',b.dataset.nav===view)); if(view==='game') $('.nav').style.opacity='.2'; else $('.nav').style.opacity='1'; window.scrollTo({top:0,behavior:'smooth'})}
+  $$('[data-nav]').forEach(b=>b.addEventListener('click',()=>nav(b.dataset.nav)));
+  function levelData(){let lvl=1,x=state.xp,need=100;while(x>=need){x-=need;lvl++;need=Math.round(need*1.18)}return{lvl,x,need}}
+  function renderAll(){
+    $('#credits').textContent=state.credits.toLocaleString('fr-FR');$('#shards').textContent=state.shards;
+    $('#collectionCount').textContent=state.inventory.length;$('#vaultValue').textContent=state.inventory.reduce((a,x)=>a+price(itemById(x.id)),0).toLocaleString('fr-FR')+' NC';
+    $('#rankText').textContent=state.placements<3?`${state.placements}/3 placements`:state.wins/state.matches>.7?'Rift Diamond':state.wins/state.matches>.48?'Phase Gold':'Flux Silver';
+    const ld=levelData();$('#levelText').textContent=ld.lvl;$('#xpText').textContent=`${ld.x} / ${ld.need} XP`;$('#xpBar').style.width=(ld.x/ld.need*100)+'%';
+    $('#wins').textContent=state.wins;$('#matches').textContent=state.matches;$('#goals').textContent=state.goals;$('#trades').textContent=state.trades;
+    $('#historyList').innerHTML=state.history.slice(-6).reverse().map(x=>`<div class="history-event"><span>${x}</span><span>NOW</span></div>`).join('');
+    renderInventory();renderMarket();renderTradeInventory();updateTrade();
+  }
+  function renderInventory(filter='all'){
+    const data=state.inventory.filter(o=>filter==='all'||itemById(o.id).rarity===filter);
+    $('#inventoryGrid').innerHTML=data.length?data.map((o,idx)=>{const i=itemById(o.id);return `<article class="item-card panel" data-inv="${idx}" style="${styleVars(i)}"><div class="item-art"><div class="item-glyph"></div></div><div class="item-meta"><div><h3>${i.name}</h3><small>${i.type} • #${String(o.serial).padStart(5,'0')} ${i.max?' / '+i.max:''}</small><span class="rarity ${rarityClass(i.rarity)}">${i.rarity.toUpperCase()}</span></div><span class="value">~${price(i).toLocaleString('fr-FR')} NC</span></div></article>`}).join(''):'<p style="color:var(--muted)">Aucun objet dans cette catégorie.</p>';
+    $$('[data-inv]').forEach(c=>c.onclick=()=>showItem(state.inventory[+c.dataset.inv]));
+  }
