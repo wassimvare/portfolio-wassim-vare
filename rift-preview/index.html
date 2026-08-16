@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no" />
+  <meta name="theme-color" content="#070912" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>RIFT//EXCHANGE — Arena Prototype</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <button class="brand" data-nav="play" aria-label="Accueil">
+        <span class="brand-mark">R//X</span>
+        <span class="brand-copy"><b>RIFT//EXCHANGE</b><small>ARENA PROTOCOL</small></span>
+      </button>
+      <nav class="nav" aria-label="Navigation principale">
+        <button class="nav-btn active" data-nav="play">JOUER</button>
+        <button class="nav-btn" data-nav="vault">VAULT</button>
+        <button class="nav-btn" data-nav="market">MARKET</button>
+        <button class="nav-btn" data-nav="trade">TRADE</button>
+        <button class="nav-btn" data-nav="profile">PROFIL</button>
+      </nav>
+      <div class="wallet">
+        <span class="wallet-pill"><i class="coin"></i><b id="credits">0</b><small> NC</small></span>
+        <span class="wallet-pill shards"><i class="shard"></i><b id="shards">0</b></span>
+      </div>
+    </header>
+    <main>
+      <section id="view-play" class="view active">
+        <div class="hero-grid">
+          <div class="hero-copy panel glass">
+            <p class="eyebrow">SEASON 00 // FIRST CONTACT</p>
+            <h1>MAÎTRISE LE CORE.<br><span>MARQUE TON MARCHÉ.</span></h1>
+            <p class="lede">Un sport d’arène nerveux où chaque match peut enrichir ta collection. Aucun avantage pay-to-win : seuls le skill, la rareté et le style comptent.</p>
+            <div class="cta-row"><button id="playBtn" class="primary-btn">LANCER UN MATCH</button><button id="howBtn" class="secondary-btn">COMMENT JOUER</button></div>
+            <div class="feature-strip"><div><b>3:00</b><span>match rapide</span></div><div><b>1v1</b><span>prototype arena</span></div><div><b>0%</b><span>pay-to-win</span></div></div>
+          </div>
+          <div class="showcase panel"><div class="showcase-orb"></div><div class="showcase-ring r1"></div><div class="showcase-ring r2"></div><p class="drop-label">FEATURED RELIC</p><h2>VOIDFRAME // 001</h2><span class="rarity mythic">MYTHIQUE</span><div class="serial">1 000 exemplaires max • pedigree activé</div></div>
+        </div>
+        <div class="dashboard-grid">
+          <article class="panel stat-card"><span>RANG</span><b id="rankText">Unranked</b><small>Gagne 3 matchs de placement</small></article>
+          <article class="panel stat-card"><span>COLLECTION</span><b id="collectionCount">0</b><small>objets possédés</small></article>
+          <article class="panel stat-card"><span>VALEUR VAULT</span><b id="vaultValue">0 NC</b><small>estimation marché</small></article>
+          <article class="panel stat-card accent"><span>PROCHAINE RÉCOMPENSE</span><b id="nextReward">1 match</b><small>drop garanti après chaque match</small></article>
+        </div>
+      </section>
+      <section id="view-game" class="view game-view"><div class="game-shell"><div class="game-hud"><div class="score team-a"><small>YOU</small><b id="scoreA">0</b></div><div class="timer"><span id="gameMode">RIFT DUEL</span><b id="timer">03:00</b></div><div class="score team-b"><small>RIVAL</small><b id="scoreB">0</b></div></div><div class="canvas-wrap"><canvas id="gameCanvas" width="1280" height="720"></canvas><div id="countdown" class="countdown hidden">3</div><div class="game-tip" id="gameTip">WASD / flèches • ESPACE dash • E polarité</div><div id="touchControls" class="touch-controls"><div class="joystick" id="joystick"><div class="stick" id="stick"></div></div><div class="touch-actions"><button id="polarityBtn">PULSE</button><button id="dashBtn">DASH</button></div></div></div><div class="ability-bar"><div class="ability"><span>DASH</span><div class="meter"><i id="dashMeter"></i></div></div><div class="polarity-indicator"><small>POLARITÉ</small><b id="polarityText">PUSH</b></div><button id="exitMatch" class="ghost-btn">QUITTER</button></div></div></section>
+      <section id="view-vault" class="view"><div class="section-head"><div><p class="eyebrow">COLLECTION</p><h1>VAULT</h1><p>Tes objets gardent leur série, leur historique et leur valeur estimée.</p></div><div class="filter-row"><button class="chip active" data-filter="all">Tous</button><button class="chip" data-filter="Mythique">Mythiques</button><button class="chip" data-filter="Légendaire">Légendaires</button><button class="chip" data-filter="Épique">Épiques</button></div></div><div id="inventoryGrid" class="item-grid"></div></section>
+      <section id="view-market" class="view"><div class="section-head"><div><p class="eyebrow">PLAYER ECONOMY</p><h1>MARKET</h1><p>Prix dynamiques simulés pour cette démo. Les échanges réels seront sécurisés côté serveur.</p></div><div class="market-stats"><span>Volume 24h <b id="volume24">0 NC</b></span><span>Listings <b id="listingCount">0</b></span></div></div><div class="market-toolbar panel"><input id="marketSearch" placeholder="Rechercher un item…" /><select id="marketRarity"><option value="all">Toutes raretés</option><option>Mythique</option><option>Légendaire</option><option>Épique</option><option>Rare</option><option>Commun</option></select><select id="marketSort"><option value="trend">Tendance</option><option value="priceAsc">Prix ↑</option><option value="priceDesc">Prix ↓</option><option value="scarcity">Rareté</option></select></div><div id="marketGrid" class="market-grid"></div></section>
+      <section id="view-trade" class="view"><div class="section-head"><div><p class="eyebrow">DIRECT EXCHANGE</p><h1>TRADE</h1><p>Prototype de négociation : assemble une offre et compare sa valeur avant validation.</p></div></div><div class="trade-layout"><div class="panel trade-side"><div class="trade-title"><span>TON OFFRE</span><b id="myOfferValue">0 NC</b></div><div id="tradeInventory" class="trade-inventory"></div><div id="myOffer" class="offer-zone">Ajoute des objets depuis ton inventaire</div></div><div class="trade-center"><div class="swap-icon">⇄</div><div class="fairness"><small>ÉQUILIBRE</small><b id="fairnessText">—</b><div class="fair-meter"><i id="fairMeter"></i></div></div><button id="resetTrade" class="secondary-btn">RÉINITIALISER</button></div><div class="panel trade-side"><div class="trade-title"><span>OFFRE RIVALE</span><b id="rivalOfferValue">0 NC</b></div><div id="rivalOffer" class="rival-offer"></div><button id="acceptTrade" class="primary-btn" disabled>ACCEPTER LE TRADE</button></div></div></section>
+      <section id="view-profile" class="view"><div class="profile-grid"><div class="panel profile-card"><div class="avatar">VX</div><h2>VOIDRUNNER</h2><span class="status-dot">EN LIGNE</span><div class="level"><span>NIVEAU <b id="levelText">1</b></span><div><i id="xpBar"></i></div><small id="xpText">0 / 100 XP</small></div></div><div class="panel history-card"><p class="eyebrow">PEDIGREE</p><h2>TON HISTORIQUE</h2><div class="profile-stats"><div><b id="wins">0</b><span>Victoires</span></div><div><b id="matches">0</b><span>Matchs</span></div><div><b id="goals">0</b><span>Goals</span></div><div><b id="trades">0</b><span>Trades</span></div></div><div class="history-list" id="historyList"></div></div></div></section>
+    </main>
+  </div>
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true"><div class="modal-card"><button class="modal-close" id="modalClose">×</button><div id="modalBody"></div></div></div><div id="toast" class="toast"></div><div class="rotate-hint"><div><b>↻</b><span>Tourne ton téléphone en paysage pour l’arène</span></div></div>
+  <script src="game.js"></script>
+</body>
+</html>
