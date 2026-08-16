@@ -1,0 +1,10 @@
+  joy.addEventListener('pointerup',e=>{if(e.pointerId===joyId){e.preventDefault();resetJoy()}});
+  joy.addEventListener('pointercancel',resetJoy);
+  const dashButton=$('#dashBtn'),pulseButton=$('#polarityBtn');
+  dashButton.addEventListener('pointerdown',e=>{e.preventDefault();if(game){dash(game.a);dashButton.textContent='BOOST';setTimeout(()=>dashButton.textContent='DASH',120)}});
+  pulseButton.addEventListener('pointerdown',e=>{e.preventDefault();if(game){togglePolarity();pulseButton.textContent=game.a.polarity===1?'PUSH':'PULL'}});
+  document.addEventListener('touchmove',e=>{if($('#view-game').classList.contains('active'))e.preventDefault()},{passive:false});
+  function sfx(freq,dur){try{const ac=sfx.ac||(sfx.ac=new (AudioContext||webkitAudioContext)()),o=ac.createOscillator(),g=ac.createGain();o.type='sine';o.frequency.value=freq;g.gain.setValueAtTime(.035,ac.currentTime);g.gain.exponentialRampToValueAtTime(.0001,ac.currentTime+dur);o.connect(g).connect(ac.destination);o.start();o.stop(ac.currentTime+dur)}catch{}}
+  setInterval(()=>{marketTick++;if($('#view-market').classList.contains('active'))renderMarket()},3500);
+  renderAll();
+})();
