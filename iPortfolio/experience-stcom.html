@@ -9,23 +9,29 @@
 <title>Stage fibre optique chez STCOM — Wassim Vare</title>
 <link href="assets/img/favicon.svg" rel="icon" type="image/svg+xml"/>
 <link href="assets/css/style.css" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/css/refinements.css">
 </head>
 <body>
 <a class="skip-link" href="#contenu">Aller au contenu</a>
 <header class="site-header scrolled">
-<div class="nav-shell">
-<a aria-label="Retour à l'accueil" class="brand" href="index.html#accueil">
-<span aria-hidden="true" class="brand-mark"><img alt="" height="44" src="assets/img/logo-wv.svg" width="44"/></span>
-<span class="brand-copy"><strong>Wassim Vare</strong><small>Support informatique</small></span>
-</a>
-<nav aria-label="Navigation principale" class="main-nav">
-<a href="index.html#profil">Profil</a>
-<a class="active" href="index.html#experience">Expérience</a>
-<a href="index.html#competences">Compétences</a>
-<a href="index.html#projets">Projets</a>
-<a href="index.html#contact">Contact</a>
-</nav>
-</div>
+  <div class="container nav-shell">
+    <a class="brand" href="index.html#accueil" aria-label="Wassim Vare — Accueil">
+      <span class="brand-mark" aria-hidden="true">WV</span>
+      <span class="brand-copy"><strong>Wassim Vare</strong><small>Support IT · Field Support</small></span>
+    </a>
+    <nav id="main-nav" class="main-nav" aria-label="Navigation principale">
+      <a href="index.html#profil">Profil</a>
+      <a href="index.html#experience">Expérience</a>
+      <a href="index.html#terrain">Terrain</a>
+      <a href="index.html#competences">Compétences</a>
+      <a href="index.html#suisse">Suisse</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="theme-toggle" type="button" aria-label="Passer au thème clair" title="Changer de thème">◐</button>
+      <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-controls="main-nav" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
 </header>
 <main id="contenu">
 <section class="detail-hero section-pad">
@@ -42,7 +48,7 @@
 <img alt="Intervention de raccordement en fibre optique" class="gallery-main" src="https://raw.githubusercontent.com/wassimvare/portfolio-wassim-vare/95bbb3f4dd8c34db208bb7e30895f87ce8531a82/iPortfolio/assets/img/portfolio/fibre.png"/>
 </a>
 </div>
-<div class="gallery-info"><p class="gallery-caption">Installation et raccordement de la fibre optique</p><span class="gallery-count">1 / 1</span></div>
+<div class="gallery-info" aria-live="polite" aria-atomic="true"><p class="gallery-caption">Installation et raccordement de la fibre optique</p><span class="gallery-count">1 / 1</span></div>
 <div class="gallery-thumbs"><button aria-label="Afficher l’image 1 : Installation et raccordement de la fibre optique" class="gallery-thumb active" data-alt="Intervention de raccordement en fibre optique" data-caption="Installation et raccordement de la fibre optique" data-src="https://raw.githubusercontent.com/wassimvare/portfolio-wassim-vare/95bbb3f4dd8c34db208bb7e30895f87ce8531a82/iPortfolio/assets/img/portfolio/fibre.png" type="button"><img alt="" decoding="async" loading="lazy" src="https://raw.githubusercontent.com/wassimvare/portfolio-wassim-vare/95bbb3f4dd8c34db208bb7e30895f87ce8531a82/iPortfolio/assets/img/portfolio/fibre.png"/></button></div>
 </section>
 <div class="detail-panel" style="margin-top: 22px;">
@@ -60,6 +66,14 @@
 </div>
 </section>
 </main>
-<footer class="site-footer"><div class="container footer-grid"><div><strong>Wassim Vare</strong><p>Technicien support informatique</p></div><div class="footer-links"><a href="index.html#profil">Profil</a><a href="index.html#experience">Expérience</a><a href="index.html#projets">Projets</a><a href="index.html#contact">Contact</a></div><p>© <span>2026</span> Wassim Vare</p></div></footer>
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div><strong>Wassim Vare</strong><p>Technicien Support IT · Field Support</p></div>
+    <div class="footer-links"><a href="index.html#experience">Expérience</a><a href="index.html#terrain">Terrain</a><a href="index.html#projets">Projets</a><a href="index.html#contact">Contact</a></div>
+    <p>© <span id="year">2026</span> Wassim Vare</p>
+  </div>
+</footer>
+<button class="back-to-top" type="button" aria-label="Retour en haut">↑</button>
+<script src="assets/js/main.js" defer></script>
 <script defer="" src="assets/js/project-gallery.js"></script></body>
 </html>
