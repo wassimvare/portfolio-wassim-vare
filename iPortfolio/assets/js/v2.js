@@ -467,9 +467,5 @@
   setupReveals();
   setupContact();
   document.querySelectorAll('[data-gallery]').forEach(setupGallery);
-  document.querySelectorAll('[data-print]').forEach(button => {
-    button.hidden = false;
-    button.addEventListener('click', () => window.print());
-  });
   document.querySelectorAll('[data-year]').forEach(year => { year.textContent = new Date().getFullYear(); });
 })();
