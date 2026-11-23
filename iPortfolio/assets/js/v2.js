@@ -88,8 +88,10 @@
     menuButton.hidden = false;
     menuButton.addEventListener('click', () => {
       const open = !isOpen();
+      const focusInNav = nav.contains(document.activeElement);
       setOpen(open);
       if (open) nav.querySelector('a[href]')?.focus({ preventScroll: true });
+      else if (focusInNav) menuButton.focus({ preventScroll: true });
     });
 
     nav.addEventListener('click', event => {
@@ -114,6 +116,10 @@
         setOpen(false);
         if (focusInNav) menuButton.focus({ preventScroll: true });
       }
+    });
+
+    document.addEventListener('focusin', event => {
+      if (isOpen() && !header.contains(event.target)) setOpen(false);
     });
 
     watchMedia(viewport, () => {
@@ -273,7 +279,7 @@
     previous.addEventListener('click', () => shift(-1));
     next.addEventListener('click', () => shift(1));
     controls.append(previous, count, next);
-    return { controls, previous, next, count };
+    return { controls, count };
   }
 
   function observeSwipe(element, shift) {
@@ -309,7 +315,6 @@
 
     let availableSlides = slides;
     let current = 0;
-    let preventClickUntil = 0;
     let opener;
 
     function shift(distance) {
@@ -347,11 +352,20 @@
       dialog.addEventListener('close', () => {
         if (!opener) return;
         const previous = slides.find(slide => slide.link === opener);
-        const focus = previous?.figure.hidden ? availableSlides[current].link : opener;
+        const selected = availableSlides[current];
+        const focus = previous?.figure.hidden ? selected.link : opener;
+        if (availableSlides.length > 1) revealThumbnail(selected.thumbnail);
         focus.focus({ preventScroll: true });
         opener = undefined;
       });
       observeSwipe(preview, shift);
+    }
+
+    function revealThumbnail(thumbnail) {
+      const strip = thumbnails.getBoundingClientRect();
+      const selected = thumbnail.getBoundingClientRect();
+      if (selected.left < strip.left) thumbnails.scrollLeft += selected.left - strip.left;
+      else if (selected.right > strip.right) thumbnails.scrollLeft += selected.right - strip.right;
     }
 
     function select(index) {
@@ -359,6 +373,7 @@
       const selected = availableSlides[current];
       const previousFocus = document.activeElement;
       const focusWasOnSlide = slides.some(slide => slide !== selected && slide.figure.contains(previousFocus));
+      const focusWasOnThumbnail = thumbnails.contains(previousFocus);
       slides.forEach(slide => {
         const active = slide === selected;
         slide.figure.hidden = !active;
@@ -369,19 +384,22 @@
       const count = `${current + 1} / ${availableSlides.length}`;
       const single = availableSlides.length === 1;
       controls.count.textContent = count;
-      controls.previous.disabled = single;
-      controls.next.disabled = single;
+      controls.controls.hidden = single;
       thumbnails.hidden = single;
+      if (!single && !dialog.open) revealThumbnail(selected.thumbnail);
 
       if (dialog.open) {
         preview.src = selected.link.href;
         preview.alt = selected.image.alt;
         caption.textContent = selected.caption?.textContent.trim() || '';
         dialogControls.count.textContent = count;
-        dialogControls.previous.disabled = single;
-        dialogControls.next.disabled = single;
+        dialogControls.controls.hidden = single;
       }
       if (focusWasOnSlide) selected.link.focus({ preventScroll: true });
+      if (focusWasOnThumbnail && selected.thumbnail !== previousFocus) {
+        const focus = single ? selected.link : selected.thumbnail;
+        focus.focus({ preventScroll: true });
+      }
     }
 
     slides.forEach(slide => {
@@ -404,6 +422,7 @@
         const index = availableSlides.indexOf(slide);
         if (index !== -1) select(index);
       });
+      let preventClickUntil = 0;
       observeSwipe(slide.figure, distance => {
         if (availableSlides.length < 2) return;
         preventClickUntil = performance.now() + 350;
@@ -448,6 +467,7 @@
 
     function handleArrows(event) {
       if (availableSlides.length < 2 || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+      if (filters?.contains(event.target)) return;
       if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
       event.preventDefault();
       shift(event.key === 'ArrowLeft' ? -1 : 1);
