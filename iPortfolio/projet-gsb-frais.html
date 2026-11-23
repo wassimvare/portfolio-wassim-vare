@@ -3,94 +3,171 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#07111f">
-  <meta name="description" content="Projet scolaire GSB Frais : application web de gestion des fiches de frais réalisée en BTS SIO.">
-  <title>GSB Frais — Wassim Vare</title>
-  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <meta name="theme-color" content="#07111F">
+  <meta name="description" content="Projet réalisé par Wassim Vare en BTS SIO. Une application PHP et MySQL de création, validation et mise en paiement de fiches de frais.">
+  <meta name="author" content="Wassim Vare">
+  <title>GSB Frais | Wassim Vare</title>
+  <link rel="canonical" href="https://wassimvare.github.io/portfolio-wassim-vare/iPortfolio/projet-gsb-frais.html">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_CH">
+  <meta property="og:title" content="GSB Frais | Wassim Vare">
+  <meta property="og:description" content="Projet réalisé par Wassim Vare en BTS SIO. Une application PHP et MySQL de création, validation et mise en paiement de fiches de frais.">
+  <meta property="og:url" content="https://wassimvare.github.io/portfolio-wassim-vare/iPortfolio/projet-gsb-frais.html">
+  <meta property="og:image" content="https://wassimvare.github.io/portfolio-wassim-vare/iPortfolio/assets/img/og-portfolio-v2.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Wassim Vare · Technicien support informatique N1/N2 et responsable adjoint">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="GSB Frais | Wassim Vare">
+  <meta name="twitter:description" content="Projet réalisé par Wassim Vare en BTS SIO. Une application PHP et MySQL de création, validation et mise en paiement de fiches de frais.">
+  <meta name="twitter:image" content="https://wassimvare.github.io/portfolio-wassim-vare/iPortfolio/assets/img/og-portfolio-v2.png">
+  <meta name="twitter:image:alt" content="Wassim Vare · Technicien support informatique N1/N2 et responsable adjoint">
+  <script src="assets/js/theme-init.js"></script>
   <link rel="stylesheet" href="assets/css/style.css">
-<link rel="stylesheet" href="assets/css/refinements.css">
+  <script src="assets/js/v2.js" defer></script>
 </head>
-<body>
+<body id="haut">
   <a class="skip-link" href="#contenu">Aller au contenu</a>
-  <header class="site-header scrolled">
-  <div class="container nav-shell">
-    <a class="brand" href="index.html#accueil" aria-label="Wassim Vare — Accueil">
-      <span class="brand-mark" aria-hidden="true">WV</span>
-      <span class="brand-copy"><strong>Wassim Vare</strong><small>Support IT · Field Support</small></span>
-    </a>
-    <nav id="main-nav" class="main-nav" aria-label="Navigation principale">
-      <a href="index.html#profil">Profil</a>
-      <a href="index.html#experience">Expérience</a>
-      <a href="index.html#terrain">Terrain</a>
-      <a href="index.html#competences">Compétences</a>
-      <a href="index.html#suisse">Suisse</a>
-      <a href="index.html#contact">Contact</a>
-    </nav>
-    <div class="nav-actions">
-      <button class="theme-toggle" type="button" aria-label="Passer au thème clair" title="Changer de thème">◐</button>
-      <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-controls="main-nav" aria-expanded="false"><span></span><span></span><span></span></button>
+  <header class="site-header" data-site-header>
+    <div class="container nav-shell">
+      <a class="brand" href="./"><span class="brand-mark" aria-hidden="true">WV</span><span>Wassim Vare</span></a>
+      <nav id="site-nav" class="site-nav" data-site-nav aria-label="Navigation principale">
+        <a href="./#accueil">Accueil</a>
+        <a href="./#experience">Expérience</a>
+        <a href="./#realisations" aria-current="location">Réalisations</a>
+        <a href="./#competences">Compétences</a>
+        <a href="./#formation">Formation</a>
+        <a href="./#contact">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="icon-button theme-toggle" type="button" aria-label="Changer de thème" data-theme-toggle hidden>
+          <svg class="icon icon-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.99 13.22A9 9 0 0 1 10.78 3a9 9 0 1 0 10.21 10.22Z"/></svg>
+          <svg class="icon icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
+        </button>
+        <button class="icon-button menu-toggle" type="button" aria-label="Ouvrir le menu" aria-controls="site-nav" aria-expanded="false" data-menu-toggle hidden>
+          <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
     </div>
-  </div>
-</header>
-
-  <main id="contenu">
-    <section class="detail-hero section-pad">
+  </header>
+  <main id="contenu" tabindex="-1">
+    <section class="detail-hero" aria-labelledby="page-title">
       <div class="container">
-        <div class="detail-breadcrumbs"><a href="index.html">Accueil</a><span>•</span><a href="index.html#projets">Projets</a><span>•</span><span>GSB Frais</span></div>
-        <span class="detail-kicker">Projet scolaire • PHP / MySQL</span>
-        <h1>GSB Frais</h1>
-        <p class="hero-intro">Une application web réalisée en BTS SIO pour gérer la création, la validation et la mise en paiement de fiches de frais.</p>
-        <div class="detail-layout">
-          <div>
-            <section class="project-gallery" data-gallery aria-label="Galerie d’images du projet GSB Frais">
-                          <div class="gallery-stage">
-                            <button class="gallery-arrow gallery-prev" type="button" aria-label="Image précédente">←</button>
-                            <a class="gallery-open" href="https://raw.githubusercontent.com/wassimvare/portfolio-wassim-vare/95bbb3f4dd8c34db208bb7e30895f87ce8531a82/iPortfolio/assets/img/portfolio/connexion.PNG" target="_blank" rel="noopener noreferrer" title="Ouvrir l’image en grand">
-                              <img class="gallery-main" src="https://raw.githubusercontent.com/wassimvare/portfolio-wassim-vare/95bbb3f4dd8c34db208bb7e30895f87ce8531a82/iPortfolio/assets/img/portfolio/connexion.PNG" alt="Écran de connexion de GSB Frais">
-                            </a>
-                            <button class="gallery-arrow gallery-next" type="button" aria-label="Image suivante">→</button>
-                          </div>
-                          <div class="gallery-info" aria-live="polite" aria-atomic="true"><p class="gallery-caption">Formulaire de connexion</p><span class="gallery-count">1 / 5</span></div>
-                          <div class="gallery-thumbs"><button type="button" class="gallery-thumb active" data-src="https://raw.githubusercontent.com/wassimvare/portfolio-wassim-vare/95bbb3f4dd8c34db208bb7e30895f87ce8531a82/iPortfolio/assets/img/portfolio/connexion.PNG" data-alt="Écran de connexion de GSB Frais" data-caption="Formulaire de connexion" aria-label="Afficher l’image 1 : Formulaire de connexion"><img src="https://raw.githubusercontent.com/wassimvare/portfolio-wassim-vare/95bbb3f4dd8c34db208bb7e30895f87ce8531a82/iPortfolio/assets/img/portfolio/connexion.PNG" alt="" loading="lazy" decoding="async"></button><button type="button" class="gallery-thumb" data-src="https://raw.githubusercontent.com/wassimvare/portfolio-wassim-vare/95bbb3f4dd8c34db208bb7e30895f87ce8531a82/iPortfolio/assets/img/portfolio/renseigner.PNG" data-alt="Page de saisie d’une fiche de frais" data-caption="Renseigner une fiche de frais" aria-label="Afficher l’image 2 : Renseigner une fiche de frais"><img src="https://raw.githubusercontent.com/wassimvare/portfolio-wassim-vare/95bbb3f4dd8c34db208bb7e30895f87ce8531a82/iPortfolio/assets/img/portfolio/renseigner.PNG" alt="" loading="lazy" decoding="async"></button><button type="button" class="gallery-thumb" data-src="https://raw.githubusercontent.com/wassimvare/portfolio-wassim-vare/95bbb3f4dd8c34db208bb7e30895f87ce8531a82/iPortfolio/assets/img/portfolio/affichermes.PNG" data-alt="Liste des fiches de frais" data-caption="Afficher mes fiches de frais" aria-label="Afficher l’image 3 : Afficher mes fiches de frais"><img src="https://raw.githubusercontent.com/wassimvare/portfolio-wassim-vare/95bbb3f4dd8c34db208bb7e30895f87ce8531a82/iPortfolio/assets/img/portfolio/affichermes.PNG" alt="" loading="lazy" decoding="async"></button><button type="button" class="gallery-thumb" data-src="https://raw.githubusercontent.com/wassimvare/portfolio-wassim-vare/95bbb3f4dd8c34db208bb7e30895f87ce8531a82/iPortfolio/assets/img/portfolio/validation.PNG" data-alt="Page de validation des fiches de frais" data-caption="Validation des fiches de frais" aria-label="Afficher l’image 4 : Validation des fiches de frais"><img src="https://raw.githubusercontent.com/wassimvare/portfolio-wassim-vare/95bbb3f4dd8c34db208bb7e30895f87ce8531a82/iPortfolio/assets/img/portfolio/validation.PNG" alt="" loading="lazy" decoding="async"></button><button type="button" class="gallery-thumb" data-src="https://raw.githubusercontent.com/wassimvare/portfolio-wassim-vare/95bbb3f4dd8c34db208bb7e30895f87ce8531a82/iPortfolio/assets/img/portfolio/afficher.PNG" data-alt="Page de mise en paiement" data-caption="Mise en paiement d’une fiche" aria-label="Afficher l’image 5 : Mise en paiement d’une fiche"><img src="https://raw.githubusercontent.com/wassimvare/portfolio-wassim-vare/95bbb3f4dd8c34db208bb7e30895f87ce8531a82/iPortfolio/assets/img/portfolio/afficher.PNG" alt="" loading="lazy" decoding="async"></button></div>
-                        </section>
-            <div class="detail-panel" style="margin-top: 22px;">
-              <h3>Contexte</h3>
-              <p>Ce projet scolaire s’inscrit dans un contexte de gestion applicative : plusieurs acteurs consultent ou manipulent des fiches de frais, avec un traitement structuré des données et des actions associées.</p>
-              <h3 style="margin-top:24px;">Objectif</h3>
-              <p>L’objectif était de concevoir une application web capable de gérer les opérations principales autour des fiches de frais et d’organiser les différentes étapes du traitement.</p>
-              <div class="detail-steps">
-                <div class="detail-step"><b>1</b><h3>Analyse</h3><p>Compréhension du besoin fonctionnel et des principales opérations à prendre en charge.</p></div><div class="detail-step"><b>2</b><h3>Développement</h3><p>Création des pages, formulaires et logique métier en PHP avec stockage en base MySQL.</p></div><div class="detail-step"><b>3</b><h3>Tests</h3><p>Vérification du comportement global, des formulaires et du traitement des données.</p></div><div class="detail-step"><b>4</b><h3>Présentation</h3><p>Mise en forme et démonstration du fonctionnement dans le cadre du BTS.</p></div>
-              </div>
-              <div class="detail-links">
-                <a class="button button-secondary" href="index.html#projets">Retour aux projets</a>
-                <a class="button button-primary" href="cv.html">Voir mon CV</a>
-              </div>
-            </div>
-          </div>
-          <aside>
-            <div class="detail-sidecard">
-              <h3>Résumé</h3>
-              <div class="detail-list">
-                <article><span>Type</span><p>Projet scolaire BTS SIO</p></article><article><span>Technologies</span><p>PHP, MySQL, HTML, CSS</p></article><article><span>Sujet</span><p>Gestion et suivi de fiches de frais</p></article><article><span>Année</span><p>2021</p></article>
-              </div>
-            </div>
-            <div class="detail-sidecard" style="margin-top:22px;">
-              <h3>Compétences mobilisées</h3><p>Développement PHP, formulaires et stockage MySQL pour suivre le cycle de traitement d’une fiche de frais.</p>
-            </div>
-          </aside>
-        </div>
+        <nav class="breadcrumb" aria-label="Fil d’Ariane">
+          <ol>
+            <li><a href="./">Accueil</a></li>
+            <li><a href="./#realisations">Réalisations</a></li>
+            <li><span aria-current="page">GSB Frais</span></li>
+          </ol>
+        </nav>
+        <p class="eyebrow">Projet BTS SIO · 2021</p>
+        <h1 id="page-title">GSB Frais</h1>
+        <p class="detail-intro">Une application web permettant de saisir, consulter, valider et mettre en paiement des fiches de frais.</p>
       </div>
     </section>
+
+    <div class="container detail-layout section">
+      <div class="detail-main">
+        <section class="detail-block" id="realisations" aria-labelledby="galerie-titre">
+          <h2 class="section-title" id="galerie-titre">Parcours dans l’application</h2>
+          <div class="project-gallery" data-gallery role="group" aria-label="Parcours dans l’application">
+            <figure data-gallery-slide>
+              <a href="assets/img/galeries/gsb-frais/01.webp" data-gallery-open aria-label="Agrandir l’image · Formulaire de connexion">
+                <img src="assets/img/galeries/gsb-frais/01.webp" width="409" height="241" alt="Écran de connexion de GSB Frais" loading="lazy" decoding="async" data-thumbnail="assets/img/galeries/gsb-frais/thumbs/01.webp">
+              </a>
+              <figcaption>Formulaire de connexion</figcaption>
+            </figure>
+            <figure data-gallery-slide>
+              <a href="assets/img/galeries/gsb-frais/02.webp" data-gallery-open aria-label="Agrandir l’image · Renseigner une fiche de frais">
+                <img src="assets/img/galeries/gsb-frais/02.webp" width="379" height="329" alt="Page de saisie d’une fiche de frais" loading="lazy" decoding="async" data-thumbnail="assets/img/galeries/gsb-frais/thumbs/02.webp">
+              </a>
+              <figcaption>Renseigner une fiche de frais</figcaption>
+            </figure>
+            <figure data-gallery-slide>
+              <a href="assets/img/galeries/gsb-frais/03.webp" data-gallery-open aria-label="Agrandir l’image · Afficher mes fiches de frais">
+                <img src="assets/img/galeries/gsb-frais/03.webp" width="504" height="333" alt="Liste des fiches de frais" loading="lazy" decoding="async" data-thumbnail="assets/img/galeries/gsb-frais/thumbs/03.webp">
+              </a>
+              <figcaption>Afficher mes fiches de frais</figcaption>
+            </figure>
+            <figure data-gallery-slide>
+              <a href="assets/img/galeries/gsb-frais/04.webp" data-gallery-open aria-label="Agrandir l’image · Validation des fiches de frais">
+                <img src="assets/img/galeries/gsb-frais/04.webp" width="417" height="368" alt="Page de validation des fiches de frais" loading="lazy" decoding="async" data-thumbnail="assets/img/galeries/gsb-frais/thumbs/04.webp">
+              </a>
+              <figcaption>Validation des fiches de frais</figcaption>
+            </figure>
+            <figure data-gallery-slide>
+              <a href="assets/img/galeries/gsb-frais/05.webp" data-gallery-open aria-label="Agrandir l’image · Mise en paiement d’une fiche">
+                <img src="assets/img/galeries/gsb-frais/05.webp" width="635" height="353" alt="Page de mise en paiement" loading="lazy" decoding="async" data-thumbnail="assets/img/galeries/gsb-frais/thumbs/05.webp">
+              </a>
+              <figcaption>Mise en paiement d’une fiche</figcaption>
+            </figure>
+          </div>
+        </section>
+        <section class="detail-block" aria-labelledby="contexte">
+          <h2 id="contexte" class="section-title">Contexte</h2>
+          <p>Ce projet scolaire portait sur le cycle de traitement d’une fiche de frais. Les personnes qui saisissent les frais et celles qui vérifient les fiches disposent de parcours adaptés à leurs actions.</p>
+        </section>
+        <section class="detail-block" aria-labelledby="missions">
+          <h2 id="missions" class="section-title">Conception et développement</h2>
+          <ul class="detail-steps">
+            <li>
+              <h3>Analyse</h3>
+              <p>Identification des opérations à prendre en charge de la saisie à la mise en paiement.</p>
+            </li>
+            <li>
+              <h3>Développement</h3>
+              <p>Pages et formulaires HTML/CSS, logique métier en PHP et stockage des données dans MySQL.</p>
+            </li>
+            <li>
+              <h3>Tests et présentation</h3>
+              <p>Vérification des formulaires et des traitements, puis démonstration dans le cadre du BTS.</p>
+            </li>
+          </ul>
+        </section>
+        <div class="detail-actions">
+          <a class="button button-secondary" href="./#realisations">Retour aux réalisations</a>
+          <a class="button button-primary" href="cv.html">Voir mon CV</a>
+        </div>
+      </div>
+      <aside class="detail-aside" aria-label="Repères">
+        <section class="detail-block" aria-labelledby="resume">
+          <h2 id="resume" class="section-title">Repères</h2>
+          <dl class="detail-facts">
+            <div>
+              <dt>Contexte</dt>
+              <dd>Projet scolaire en BTS SIO</dd>
+            </div>
+            <div>
+              <dt>Année</dt>
+              <dd>2021</dd>
+            </div>
+            <div>
+              <dt>Technologies</dt>
+              <dd>PHP, MySQL, HTML et CSS.</dd>
+            </div>
+            <div>
+              <dt>Compétences</dt>
+              <dd>Modélisation des opérations, création de formulaires et gestion des données.</dd>
+            </div>
+          </dl>
+        </section>
+      </aside>
+    </div>
   </main>
   <footer class="site-footer">
-  <div class="container footer-grid">
-    <div><strong>Wassim Vare</strong><p>Technicien Support IT · Field Support</p></div>
-    <div class="footer-links"><a href="index.html#experience">Expérience</a><a href="index.html#terrain">Terrain</a><a href="index.html#projets">Projets</a><a href="index.html#contact">Contact</a></div>
-    <p>© <span id="year">2026</span> Wassim Vare</p>
-  </div>
-</footer>
-<button class="back-to-top" type="button" aria-label="Retour en haut">↑</button>
-<script src="assets/js/main.js" defer></script>
-  <script src="assets/js/project-gallery.js" defer></script>
+    <div class="container footer-shell">
+      <a class="brand" href="./"><span class="brand-mark" aria-hidden="true">WV</span><span>Wassim Vare</span></a>
+      <nav class="footer-links" aria-label="Liens de pied de page">
+        <a href="./#experience">Expérience</a>
+        <a href="./#realisations">Réalisations</a>
+        <a href="./#contact">Contact</a>
+      </nav>
+      <a class="back-top" href="#haut" data-back-top>
+        <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg>
+        <span>Retour en haut</span>
+      </a>
+    </div>
+  </footer>
 </body>
 </html>

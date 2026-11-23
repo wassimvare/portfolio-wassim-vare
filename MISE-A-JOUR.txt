@@ -1,9 +1,16 @@
-MISE À JOUR DU PORTFOLIO GITHUB
+PORTFOLIO WASSIM VARE — V2
 
-1. Décompresse ce ZIP.
-2. Dans ton dépôt portfolio-wassim-vare, supprime ou renomme l'ancien dossier iPortfolio.
-3. Copie le nouveau dossier iPortfolio contenu dans ce ZIP à la racine du dépôt.
-4. Fais un commit puis un push sur la branche utilisée par GitHub Pages.
+La refonte est préparée sur la branche refonte/portfolio-v2.
 
-Adresse du site :
-https://wassimvare.github.io/portfolio-wassim-vare/iPortfolio/index.html
+Pour prévisualiser depuis la racine du dépôt, lancer la commande suivante.
+  python3 -m http.server 8000 --bind 127.0.0.1
+
+Puis ouvrir http://127.0.0.1:8000/iPortfolio/ dans le navigateur.
+
+Après validation des modifications, pousser la branche et ouvrir une pull
+request vers la branche utilisée par GitHub Pages. Publier après revue
+en fusionnant la pull request. Conserver la source et les réglages Pages
+existants ainsi que le dossier iPortfolio/.
+
+Adresse de production
+https://wassimvare.github.io/portfolio-wassim-vare/iPortfolio/

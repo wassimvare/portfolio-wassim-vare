@@ -1,53 +1,165 @@
-<!DOCTYPE html>
-<html lang="fr">
+<!doctype html>
+<html lang="fr" data-theme="dark">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="CV de Wassim Vare, Responsable adjoint et Technicien Support IT N1/N2. Citoyen suisse, mobilité Vaud, Genève et Suisse romande." name="description"/>
-<title>CV — Wassim Vare</title>
-<style>
-:root{--ink:#10243c;--muted:#586a7e;--blue:#007fae;--line:#dfe7ef;--paper:#fff;--bg:#edf3f8}*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Arial,Helvetica,sans-serif;color:var(--ink);line-height:1.5}.toolbar{max-width:960px;margin:24px auto 0;display:flex;justify-content:space-between;gap:12px}.toolbar a,.toolbar button{border:0;border-radius:10px;background:#10243c;color:#fff;padding:11px 15px;font-weight:700;text-decoration:none;cursor:pointer}.page{max-width:960px;margin:20px auto 50px;background:var(--paper);box-shadow:0 20px 60px rgba(35,59,82,.15);display:grid;grid-template-columns:280px 1fr;min-height:1120px}.side{padding:42px 30px;background:#10243c;color:#fff}.avatar{width:118px;height:138px;display:block;overflow:hidden;margin-bottom:24px}.avatar img{width:100%;height:100%;object-fit:contain;object-position:center}.side h1{font-size:27px;line-height:1.05;margin:0 0 8px}.role{color:#aeeaff;font-weight:700}.side h2{font-size:13px;text-transform:uppercase;letter-spacing:.12em;margin:30px 0 10px;color:#aeeaff}.side p,.side li{font-size:13px;color:#d6e1ec}.side ul{padding-left:17px}.main{padding:48px}.main h2{font-size:17px;text-transform:uppercase;letter-spacing:.11em;color:var(--blue);border-bottom:2px solid var(--line);padding-bottom:8px;margin:30px 0 16px}.main h2:first-child{margin-top:0}.main h3{font-size:16px;margin:0}.topline{display:flex;justify-content:space-between;gap:20px}.date{color:var(--blue);font-size:12px;font-weight:700;white-space:nowrap}.company{color:var(--muted);font-size:13px;font-weight:700;margin:3px 0 8px}.item{margin-bottom:20px}.item p,.item li{font-size:13px;color:#334960}.item ul{margin:7px 0;padding-left:18px}.skills{display:grid;grid-template-columns:1fr 1fr;gap:10px 24px}.skill{padding:9px 0;border-bottom:1px solid var(--line);font-size:13px}.note{margin-top:30px;padding:13px;border:1px dashed var(--line);background:#f8fbfd;color:var(--muted);font-size:12px}@media(max-width:760px){.toolbar{margin:12px}.page{margin:12px;grid-template-columns:1fr}.side,.main{padding:28px}.page{min-height:auto}.skills{grid-template-columns:1fr}}@media print{body{background:#fff}.toolbar,.note{display:none}.page{margin:0;max-width:none;box-shadow:none;min-height:100vh}.side{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
-
-/* Readable CV on screen; compact print layout keeps the existing design. */
-.toolbar{flex-wrap:wrap;padding-inline:12px;align-items:center}
-.toolbar a,.toolbar button{min-height:44px;display:inline-flex;align-items:center;justify-content:center;font:inherit;font-weight:700}
-.side a{color:inherit;text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}
-a:focus-visible,button:focus-visible{outline:3px solid #007fae;outline-offset:4px}
-@media screen{.side p,.side li,.item p,.item li,.skill,.company{font-size:14px}.side h2,.date{font-size:13px}.topline{flex-wrap:wrap;gap:5px}.date{white-space:normal}.page{overflow-wrap:anywhere}}
-@media screen and (max-width:760px){.toolbar a,.toolbar button{flex:1 1 180px}.main,.side{padding:28px 22px}.topline{display:grid}.page{margin:12px}}
-@media print{@page{size:A4;margin:0}.page{grid-template-columns:29% 1fr;min-height:297mm}.side{padding:30px 22px}.main{padding:30px}.topline{flex-wrap:wrap;gap:3px}.item{break-inside:avoid}.main h2{break-after:avoid}.side a{text-decoration:none}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07111F">
+  <meta name="description" content="CV de Wassim Vare, technicien support informatique N1/N2 et responsable adjoint. Parcours, compétences et mobilité en Suisse romande, notamment Vaud et Genève.">
+  <meta name="author" content="Wassim Vare">
+  <title>CV · Technicien support informatique N1/N2 | Wassim Vare</title>
+  <link rel="canonical" href="https://wassimvare.github.io/portfolio-wassim-vare/iPortfolio/cv.html">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_CH">
+  <meta property="og:title" content="CV · Technicien support informatique N1/N2 | Wassim Vare">
+  <meta property="og:description" content="CV de Wassim Vare, technicien support informatique N1/N2 et responsable adjoint. Parcours, compétences et mobilité en Suisse romande, notamment Vaud et Genève.">
+  <meta property="og:url" content="https://wassimvare.github.io/portfolio-wassim-vare/iPortfolio/cv.html">
+  <meta property="og:image" content="https://wassimvare.github.io/portfolio-wassim-vare/iPortfolio/assets/img/og-portfolio-v2.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Wassim Vare · Technicien support informatique N1/N2 et responsable adjoint">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CV · Technicien support informatique N1/N2 | Wassim Vare">
+  <meta name="twitter:description" content="CV de Wassim Vare, technicien support informatique N1/N2 et responsable adjoint. Parcours, compétences et mobilité en Suisse romande, notamment Vaud et Genève.">
+  <meta name="twitter:image" content="https://wassimvare.github.io/portfolio-wassim-vare/iPortfolio/assets/img/og-portfolio-v2.png">
+  <meta name="twitter:image:alt" content="Wassim Vare · Technicien support informatique N1/N2 et responsable adjoint">
+  <script src="assets/js/theme-init.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/v2.js" defer></script>
 </head>
-<body>
-<div class="toolbar"><a href="index.html">← Retour au portfolio</a><a href="index.html#contact">Contact</a><button onclick="window.print()" type="button">Imprimer / Enregistrer en PDF</button></div>
-<main class="page">
-<aside class="side">
-<div class="avatar"><img alt="Portrait de Wassim Vare" src="assets/img/wassim-cv-card.png"/></div>
-<h1>Wassim<br/>Vare</h1>
-<p class="role">Responsable adjoint · Technicien Support IT N1/N2</p>
-<h2>Profil</h2>
-<p>Responsable adjoint et Technicien Support IT N1/N2, orienté support utilisateurs, coordination de proximité, diagnostic, déploiement et maintien des équipements informatiques.</p>
-<h2>Contact</h2>
-<p>Villeneuve (VD), Suisse<br/>Citoyen suisse<br/>Vaud · Genève · Suisse romande<br/><a href="mailto:varewassim7@gmail.com">varewassim7@gmail.com</a><br/><a href="https://www.linkedin.com/in/wassim-vare-359a3716a" target="_blank" rel="noopener">Profil LinkedIn ↗</a><br/>Disponibilité à convenir</p>
-<h2>Qualités</h2>
-<ul><li>Écoute et pédagogie</li><li>Réactivité</li><li>Rigueur</li><li>Autonomie</li><li>Sens du service</li></ul>
-<h2>Langues</h2>
-<p>Français<br/>Anglais technique</p>
-</aside>
-<section class="main">
-<h2>Expérience professionnelle</h2>
-<article class="item"><div class="topline"><h3>Responsable adjoint · Technicien Support IT N1/N2</h3><span class="date">Jan. 2024 - Aujourd’hui</span></div><p class="company">TIBCO Service · activité depuis jan. 2024 · CDI Actual ITS depuis oct. 2025</p><ul><li>Jan. 2024 - sept. 2025 : support de proximité au siège Banque Populaire à Lyon.</li><li>Depuis oct. 2025 : interventions multisites sur la région lyonnaise, Villefranche-sur-Saône et Bourg-en-Bresse.</li><li>Évolution vers un rôle de Responsable adjoint en complément des missions de support terrain.</li><li>Support pour plus de 12 environnements clients : Banque Populaire, Banque CCF, Arkéa, PMU, Nickel, Sephora, SAMSE, Yves Rocher, Jules, Histoire d’Or, THOM Group et CDC Informatique.</li><li>Diagnostic, préparation, installation et remplacement de postes, écrans, imprimantes, bornes et équipements métiers.</li></ul></article>
-<article class="item"><div class="topline"><h3>Stage développeur web</h3><span class="date">Jan. - Fév. 2022</span></div><p class="company">Ty’bulles</p><p>Évolution d’un site PrestaShop, création d’un chatbot, optimisation SEO et amélioration de pages.</p></article>
-<article class="item"><div class="topline"><h3>Stage fibre optique</h3><span class="date">Mai - Juil. 2021</span></div><p class="company">STCOM</p><p>Installation d’équipements, contrôle de conformité et interventions de dépannage.</p></article>
-<h2>Compétences techniques</h2>
-<div class="skills"><div class="skill">Support N1/N2</div><div class="skill">Microsoft 365</div><div class="skill">Active Directory</div><div class="skill">GLPI / ServiceNow</div><div class="skill">Windows 10 / 11</div><div class="skill">Déploiement de postes</div><div class="skill">Diagnostic matériel</div><div class="skill">Stations d’accueil et écrans</div><div class="skill">Imprimantes et périphériques</div><div class="skill">Premiers diagnostics réseau · DHCP · brassage</div></div>
-<h2>Formation</h2>
-<article class="item"><div class="topline"><h3>BTS SIO - Option SLAM</h3><span class="date">2020 - 2022</span></div><p class="company">Lycée Jacques Brel, Vénissieux</p></article>
-<article class="item"><div class="topline"><h3>Bac Pro Systèmes Numériques</h3><span class="date">2017 - 2020</span></div><p class="company">Réseaux informatiques et systèmes communicants</p></article>
-<h2>Réalisations terrain</h2>
-<article class="item"><p>Interventions pour plus de 12 environnements clients sur plusieurs zones, avec support de proximité, multisites et responsabilités d’adjoint chez TIBCO Service.</p></article>
-</section>
-</main>
+<body id="haut">
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+  <header class="site-header" data-site-header>
+    <div class="container nav-shell">
+      <a class="brand" href="./"><span class="brand-mark" aria-hidden="true">WV</span><span>Wassim Vare</span></a>
+      <nav id="site-nav" class="site-nav" data-site-nav aria-label="Navigation principale">
+        <a href="./#accueil">Accueil</a>
+        <a href="./#experience">Expérience</a>
+        <a href="./#realisations">Réalisations</a>
+        <a href="./#competences">Compétences</a>
+        <a href="./#formation">Formation</a>
+        <a href="./#contact">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="icon-button theme-toggle" type="button" aria-label="Changer de thème" data-theme-toggle hidden>
+          <svg class="icon icon-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.99 13.22A9 9 0 0 1 10.78 3a9 9 0 1 0 10.21 10.22Z"/></svg>
+          <svg class="icon icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
+        </button>
+        <button class="icon-button menu-toggle" type="button" aria-label="Ouvrir le menu" aria-controls="site-nav" aria-expanded="false" data-menu-toggle hidden>
+          <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+  <main id="contenu" tabindex="-1">
+    <section class="detail-hero" aria-labelledby="page-title">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Fil d’Ariane">
+          <ol>
+            <li><a href="./">Accueil</a></li>
+            <li><span aria-current="page">CV</span></li>
+          </ol>
+        </nav>
+        <p class="eyebrow">CV en ligne</p>
+        <h1 id="page-title">Wassim Vare</h1>
+        <p class="detail-intro">Technicien support informatique N1/N2 et responsable adjoint</p>
+        <div class="cv-print-toolbar">
+          <button class="button button-primary" type="button" data-print hidden>Imprimer / Enregistrer en PDF</button>
+          <p>Cette version web peut être imprimée ou enregistrée en PDF depuis le navigateur.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="container section cv-layout">
+      <aside class="cv-sidebar" aria-label="Profil et coordonnées">
+        <picture class="cv-portrait">
+          <source srcset="assets/img/photo-accueil-2026-hd.avif" type="image/avif">
+          <img src="assets/img/photo-accueil-2026-480.webp" width="480" height="480" alt="Portrait de Wassim Vare" decoding="async">
+        </picture>
+        <section aria-labelledby="cv-profil">
+          <h2 id="cv-profil">Profil</h2>
+          <p>Support utilisateurs, diagnostic, déploiement et maintenance des équipements informatiques, avec coordination des interventions de proximité.</p>
+        </section>
+        <section aria-labelledby="cv-contact">
+          <h2 id="cv-contact">Contact et mobilité</h2>
+          <ul class="cv-contact-list">
+            <li><a href="mailto:varewassim7@gmail.com">varewassim7@gmail.com</a></li>
+            <li><a href="https://www.linkedin.com/in/wassim-vare-359a3716a">LinkedIn</a> · <a href="https://github.com/wassimvare">GitHub</a></li>
+            <li>Citoyen suisse</li>
+            <li>Mobilité en Suisse romande, notamment Vaud et Genève</li>
+            <li>Disponibilité à convenir</li>
+          </ul>
+        </section>
+        <section aria-labelledby="cv-qualites">
+          <h2 id="cv-qualites">Qualités</h2>
+          <p>Écoute, pédagogie, réactivité, rigueur, autonomie et sens du service.</p>
+        </section>
+        <section aria-labelledby="cv-langues">
+          <h2 id="cv-langues">Langues</h2>
+          <p>Français · Anglais technique</p>
+        </section>
+      </aside>
+      <div class="cv-content">
+        <section aria-labelledby="cv-experience">
+          <h2 id="cv-experience">Expérience professionnelle</h2>
+          <article class="cv-entry">
+            <div class="cv-entry-heading">
+              <h3>Technicien support N1/N2 et responsable adjoint</h3>
+              <p class="cv-date">Depuis <time datetime="2024-01">janvier 2024</time></p>
+            </div>
+            <p><strong>TIBCO Service / Actual ITS</strong></p>
+            <ul>
+              <li>Janvier 2024 à septembre 2025. Support de proximité au siège Banque Populaire à Lyon.</li>
+              <li>Depuis octobre 2025. CDI Actual ITS et interventions multisites en région lyonnaise, à Villefranche-sur-Saône et à Bourg-en-Bresse.</li>
+              <li>Appui à la coordination opérationnelle, suivi des interventions et assistance aux utilisateurs.</li>
+              <li>Diagnostic, préparation, installation et remplacement de postes, écrans, imprimantes, bornes et équipements métiers.</li>
+            </ul>
+          </article>
+          <article class="cv-entry">
+            <div class="cv-entry-heading"><h3>Stage de développement web chez Ty’bulles</h3><p class="cv-date">Janvier à février 2022</p></div>
+            <p>Évolution d’un site PrestaShop, création et intégration d’un chatbot, référencement et amélioration de pages.</p>
+          </article>
+          <article class="cv-entry">
+            <div class="cv-entry-heading"><h3>Stage fibre optique chez STCOM</h3><p class="cv-date">Mai à juillet 2021</p></div>
+            <p>Installation et raccordement d’équipements, contrôle de conformité et dépannage.</p>
+          </article>
+        </section>
+        <section aria-labelledby="cv-competences">
+          <h2 id="cv-competences">Compétences techniques</h2>
+          <ul class="cv-skills">
+            <li>Support N1/N2, diagnostic matériel et logiciel, gestion des tickets GLPI et ServiceNow.</li>
+            <li>Windows 10/11, Microsoft 365, Active Directory, maintenance et déploiement de postes.</li>
+            <li>Stations d’accueil, écrans, imprimantes, périphériques et équipements métiers.</li>
+            <li>Diagnostic de connectivité, TCP/IP, DHCP, câblage et brassage.</li>
+          </ul>
+        </section>
+        <section aria-labelledby="cv-formation">
+          <h2 id="cv-formation">Formation</h2>
+          <article class="cv-entry">
+            <div class="cv-entry-heading"><h3>BTS Services Informatiques aux Organisations</h3><p class="cv-date">2020–2022</p></div>
+            <p>Diplôme obtenu. Option Solutions Logicielles et Applications Métiers (SLAM), lycée Jacques Brel, Vénissieux.</p>
+          </article>
+          <article class="cv-entry">
+            <div class="cv-entry-heading"><h3>Bac pro Systèmes Numériques</h3><p class="cv-date">2017–2020</p></div>
+            <p>Option Réseaux Informatiques et Systèmes Communicants.</p>
+          </article>
+        </section>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-shell">
+      <a class="brand" href="./"><span class="brand-mark" aria-hidden="true">WV</span><span>Wassim Vare</span></a>
+      <nav class="footer-links" aria-label="Liens de pied de page">
+        <a href="./#experience">Expérience</a>
+        <a href="./#realisations">Réalisations</a>
+        <a href="./#contact">Contact</a>
+      </nav>
+      <a class="back-top" href="#haut" data-back-top>
+        <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg>
+        <span>Retour en haut</span>
+      </a>
+    </div>
+  </footer>
 </body>
 </html>
-
