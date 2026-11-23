@@ -1,19 +1,19 @@
-PORTFOLIO WASSIM VARE - VERSION PROFESSIONNELLE
+PORTFOLIO WASSIM VARE — APERÇU LOCAL
 
-APERÇU LOCAL
-- Ouvre index.html pour voir le portfolio.
-- Ouvre cv.html pour voir le CV web.
-- Le PDF se trouve dans assets/docs/CV-Wassim-Vare.pdf.
+Depuis la racine du dépôt, lancer la commande suivante.
+  python3 -m http.server 8000 --bind 127.0.0.1
 
-CONTENU
-- Page d'accueil responsive en thème clair/sombre.
-- Expériences TIBCO, Ty'bulles et STCOM.
-- Section d'interventions terrain avec photos réelles.
-- Galerie TIBCO filtrable.
-- Projets GSB Frais et HarmoCCF.
-- Formulaire de contact compatible GitHub Pages.
-- CV HTML et PDF.
-- SEO de base, sitemap, robots.txt et .nojekyll.
+Ouvrir http://127.0.0.1:8000/iPortfolio/ dans le navigateur.
+Aucune dépendance à installer. Voir ../MISE-A-JOUR.txt pour la publication.
 
-PUBLICATION
-Remplace entièrement le dossier iPortfolio de ton dépôt, puis effectue un commit et un push sur la branche main.
+Le site utilise HTML, CSS et JavaScript natifs.
+Les informations essentielles et les liens des galeries restent
+disponibles avec JavaScript désactivé.
+
+Le CV web est disponible dans cv.html. La commande d’impression
+du navigateur permet aussi de l’enregistrer en PDF. Le fichier original
+assets/docs/CV-Wassim-Vare.pdf est conservé pour référence.
+
+Les galeries utilisent des WebP locaux. Les fichiers d’origine des
+images anonymisées restent dans l’historique Git. Le portrait de
+l’accueil reprend la photographie originale.

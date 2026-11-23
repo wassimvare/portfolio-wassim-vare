@@ -3,94 +3,165 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#07111f">
-  <meta name="description" content="Projet scolaire HarmoCCF : application de saisie de notes et calcul de moyennes.">
-  <title>HarmoCCF — Wassim Vare</title>
-  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <meta name="theme-color" content="#07111F">
+  <meta name="description" content="Projet scolaire de Wassim Vare. Une application HTML, PHP et MySQL pour saisir des notes, calculer des moyennes et conserver les résultats.">
+  <meta name="author" content="Wassim Vare">
+  <title>HarmoCCF | Wassim Vare</title>
+  <link rel="canonical" href="https://wassimvare.github.io/portfolio-wassim-vare/iPortfolio/projet-harmoccf.html">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_CH">
+  <meta property="og:title" content="HarmoCCF | Wassim Vare">
+  <meta property="og:description" content="Projet scolaire de Wassim Vare. Une application HTML, PHP et MySQL pour saisir des notes, calculer des moyennes et conserver les résultats.">
+  <meta property="og:url" content="https://wassimvare.github.io/portfolio-wassim-vare/iPortfolio/projet-harmoccf.html">
+  <meta property="og:image" content="https://wassimvare.github.io/portfolio-wassim-vare/iPortfolio/assets/img/og-portfolio-v2.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Wassim Vare · Technicien support informatique N1/N2 et responsable adjoint">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="HarmoCCF | Wassim Vare">
+  <meta name="twitter:description" content="Projet scolaire de Wassim Vare. Une application HTML, PHP et MySQL pour saisir des notes, calculer des moyennes et conserver les résultats.">
+  <meta name="twitter:image" content="https://wassimvare.github.io/portfolio-wassim-vare/iPortfolio/assets/img/og-portfolio-v2.png">
+  <meta name="twitter:image:alt" content="Wassim Vare · Technicien support informatique N1/N2 et responsable adjoint">
+  <script src="assets/js/theme-init.js"></script>
   <link rel="stylesheet" href="assets/css/style.css">
-<link rel="stylesheet" href="assets/css/refinements.css">
+  <script src="assets/js/v2.js" defer></script>
 </head>
-<body>
+<body id="haut">
   <a class="skip-link" href="#contenu">Aller au contenu</a>
-  <header class="site-header scrolled">
-  <div class="container nav-shell">
-    <a class="brand" href="index.html#accueil" aria-label="Wassim Vare — Accueil">
-      <span class="brand-mark" aria-hidden="true">WV</span>
-      <span class="brand-copy"><strong>Wassim Vare</strong><small>Support IT · Field Support</small></span>
-    </a>
-    <nav id="main-nav" class="main-nav" aria-label="Navigation principale">
-      <a href="index.html#profil">Profil</a>
-      <a href="index.html#experience">Expérience</a>
-      <a href="index.html#terrain">Terrain</a>
-      <a href="index.html#competences">Compétences</a>
-      <a href="index.html#suisse">Suisse</a>
-      <a href="index.html#contact">Contact</a>
-    </nav>
-    <div class="nav-actions">
-      <button class="theme-toggle" type="button" aria-label="Passer au thème clair" title="Changer de thème">◐</button>
-      <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-controls="main-nav" aria-expanded="false"><span></span><span></span><span></span></button>
+  <header class="site-header" data-site-header>
+    <div class="container nav-shell">
+      <a class="brand" href="./"><span class="brand-mark" aria-hidden="true">WV</span><span>Wassim Vare</span></a>
+      <nav id="site-nav" class="site-nav" data-site-nav aria-label="Navigation principale">
+        <a href="./#accueil">Accueil</a>
+        <a href="./#experience">Expérience</a>
+        <a href="./#realisations" aria-current="location">Réalisations</a>
+        <a href="./#competences">Compétences</a>
+        <a href="./#formation">Formation</a>
+        <a href="./#contact">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="icon-button theme-toggle" type="button" aria-label="Changer de thème" data-theme-toggle hidden>
+          <svg class="icon icon-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.99 13.22A9 9 0 0 1 10.78 3a9 9 0 1 0 10.21 10.22Z"/></svg>
+          <svg class="icon icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
+        </button>
+        <button class="icon-button menu-toggle" type="button" aria-label="Ouvrir le menu" aria-controls="site-nav" aria-expanded="false" data-menu-toggle hidden>
+          <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
     </div>
-  </div>
-</header>
-
-  <main id="contenu">
-    <section class="detail-hero section-pad">
+  </header>
+  <main id="contenu" tabindex="-1">
+    <section class="detail-hero" aria-labelledby="page-title">
       <div class="container">
-        <div class="detail-breadcrumbs"><a href="index.html">Accueil</a><span>•</span><a href="index.html#projets">Projets</a><span>•</span><span>HarmoCCF</span></div>
-        <span class="detail-kicker">Projet scolaire • Web</span>
-        <h1>HarmoCCF</h1>
-        <p class="hero-intro">Une application web de saisie de notes permettant de calculer des moyennes et d’enregistrer les résultats.</p>
-        <div class="detail-layout">
-          <div>
-            <section class="project-gallery" data-gallery aria-label="Galerie d’images du projet HarmoCCF">
-                          <div class="gallery-stage">
-                            <button class="gallery-arrow gallery-prev" type="button" aria-label="Image précédente">←</button>
-                            <a class="gallery-open" href="https://raw.githubusercontent.com/wassimvare/portfolio-wassim-vare/95bbb3f4dd8c34db208bb7e30895f87ce8531a82/iPortfolio/assets/img/portfolio/portfolio-details-1.jpg" target="_blank" rel="noopener noreferrer" title="Ouvrir l’image en grand">
-                              <img class="gallery-main" src="https://raw.githubusercontent.com/wassimvare/portfolio-wassim-vare/95bbb3f4dd8c34db208bb7e30895f87ce8531a82/iPortfolio/assets/img/portfolio/portfolio-details-1.jpg" alt="Formulaire de connexion HarmoCCF">
-                            </a>
-                            <button class="gallery-arrow gallery-next" type="button" aria-label="Image suivante">→</button>
-                          </div>
-                          <div class="gallery-info" aria-live="polite" aria-atomic="true"><p class="gallery-caption">Formulaire de connexion</p><span class="gallery-count">1 / 4</span></div>
-                          <div class="gallery-thumbs"><button type="button" class="gallery-thumb active" data-src="https://raw.githubusercontent.com/wassimvare/portfolio-wassim-vare/95bbb3f4dd8c34db208bb7e30895f87ce8531a82/iPortfolio/assets/img/portfolio/portfolio-details-1.jpg" data-alt="Formulaire de connexion HarmoCCF" data-caption="Formulaire de connexion" aria-label="Afficher l’image 1 : Formulaire de connexion"><img src="https://raw.githubusercontent.com/wassimvare/portfolio-wassim-vare/95bbb3f4dd8c34db208bb7e30895f87ce8531a82/iPortfolio/assets/img/portfolio/portfolio-details-1.jpg" alt="" loading="lazy" decoding="async"></button><button type="button" class="gallery-thumb" data-src="https://raw.githubusercontent.com/wassimvare/portfolio-wassim-vare/95bbb3f4dd8c34db208bb7e30895f87ce8531a82/iPortfolio/assets/img/portfolio/portfolio-details-2.jpg" data-alt="Saisie du nombre de notes dans HarmoCCF" data-caption="Saisie du nombre de notes" aria-label="Afficher l’image 2 : Saisie du nombre de notes"><img src="https://raw.githubusercontent.com/wassimvare/portfolio-wassim-vare/95bbb3f4dd8c34db208bb7e30895f87ce8531a82/iPortfolio/assets/img/portfolio/portfolio-details-2.jpg" alt="" loading="lazy" decoding="async"></button><button type="button" class="gallery-thumb" data-src="https://raw.githubusercontent.com/wassimvare/portfolio-wassim-vare/95bbb3f4dd8c34db208bb7e30895f87ce8531a82/iPortfolio/assets/img/portfolio/portfolio-details-3.jpg" data-alt="Saisie des notes dans HarmoCCF" data-caption="Saisie des notes" aria-label="Afficher l’image 3 : Saisie des notes"><img src="https://raw.githubusercontent.com/wassimvare/portfolio-wassim-vare/95bbb3f4dd8c34db208bb7e30895f87ce8531a82/iPortfolio/assets/img/portfolio/portfolio-details-3.jpg" alt="" loading="lazy" decoding="async"></button><button type="button" class="gallery-thumb" data-src="https://raw.githubusercontent.com/wassimvare/portfolio-wassim-vare/95bbb3f4dd8c34db208bb7e30895f87ce8531a82/iPortfolio/assets/img/portfolio/portfolio-details-4.jpg" data-alt="Affichage des résultats dans HarmoCCF" data-caption="Affichage des résultats" aria-label="Afficher l’image 4 : Affichage des résultats"><img src="https://raw.githubusercontent.com/wassimvare/portfolio-wassim-vare/95bbb3f4dd8c34db208bb7e30895f87ce8531a82/iPortfolio/assets/img/portfolio/portfolio-details-4.jpg" alt="" loading="lazy" decoding="async"></button></div>
-                        </section>
-            <div class="detail-panel" style="margin-top: 22px;">
-              <h3>Contexte</h3>
-              <p>Ce projet a été réalisé dans un cadre pédagogique afin de mettre en pratique les premières notions de formulaires, de traitement serveur et de stockage de données.</p>
-              <h3 style="margin-top:24px;">Objectif</h3>
-              <p>L’objectif était de proposer un outil simple permettant la saisie de notes, le calcul des moyennes et la conservation des résultats dans une base de données.</p>
-              <div class="detail-steps">
-                <div class="detail-step"><b>1</b><h3>Conception</h3><p>Définition des écrans utiles à la saisie et au traitement des notes.</p></div><div class="detail-step"><b>2</b><h3>Développement</h3><p>Création de formulaires et implémentation de la logique en PHP.</p></div><div class="detail-step"><b>3</b><h3>Calculs</h3><p>Traitement des notes, calcul de la moyenne et organisation des résultats.</p></div><div class="detail-step"><b>4</b><h3>Enregistrement</h3><p>Stockage en base de données et restitution des informations.</p></div>
-              </div>
-              <div class="detail-links">
-                <a class="button button-secondary" href="index.html#projets">Retour aux projets</a>
-                <a class="button button-primary" href="cv.html">Voir mon CV</a>
-              </div>
-            </div>
-          </div>
-          <aside>
-            <div class="detail-sidecard">
-              <h3>Résumé</h3>
-              <div class="detail-list">
-                <article><span>Type</span><p>Projet scolaire</p></article><article><span>Technologies</span><p>HTML, PHP, MySQL</p></article><article><span>Sujet</span><p>Saisie de notes et calcul de moyenne</p></article><article><span>Année</span><p>2020</p></article>
-              </div>
-            </div>
-            <div class="detail-sidecard" style="margin-top:22px;">
-              <h3>Compétences mobilisées</h3><p>Formulaires web, calcul de moyennes et enregistrement des résultats dans une base de données MySQL.</p>
-            </div>
-          </aside>
-        </div>
+        <nav class="breadcrumb" aria-label="Fil d’Ariane">
+          <ol>
+            <li><a href="./">Accueil</a></li>
+            <li><a href="./#realisations">Réalisations</a></li>
+            <li><span aria-current="page">HarmoCCF</span></li>
+          </ol>
+        </nav>
+        <p class="eyebrow">Projet scolaire · 2020</p>
+        <h1 id="page-title">HarmoCCF</h1>
+        <p class="detail-intro">Une application web de saisie de notes qui calcule les moyennes et enregistre les résultats.</p>
       </div>
     </section>
+
+    <div class="container detail-layout section">
+      <div class="detail-main">
+        <section class="detail-block" id="realisations" aria-labelledby="galerie-titre">
+          <h2 class="section-title" id="galerie-titre">Parcours dans l’application</h2>
+          <div class="project-gallery" data-gallery role="group" aria-label="Parcours dans l’application">
+            <figure data-gallery-slide>
+              <a href="assets/img/galeries/harmoccf/01.webp" data-gallery-open aria-label="Agrandir l’image · Formulaire de connexion">
+                <img src="assets/img/galeries/harmoccf/01.webp" width="600" height="217" alt="Formulaire de connexion HarmoCCF" loading="lazy" decoding="async" data-thumbnail="assets/img/galeries/harmoccf/thumbs/01.webp">
+              </a>
+              <figcaption>Formulaire de connexion</figcaption>
+            </figure>
+            <figure data-gallery-slide>
+              <a href="assets/img/galeries/harmoccf/02.webp" data-gallery-open aria-label="Agrandir l’image · Saisie du nombre de notes">
+                <img src="assets/img/galeries/harmoccf/02.webp" width="454" height="249" alt="Saisie du nombre de notes dans HarmoCCF" loading="lazy" decoding="async" data-thumbnail="assets/img/galeries/harmoccf/thumbs/02.webp">
+              </a>
+              <figcaption>Saisie du nombre de notes</figcaption>
+            </figure>
+            <figure data-gallery-slide>
+              <a href="assets/img/galeries/harmoccf/03.webp" data-gallery-open aria-label="Agrandir l’image · Saisie des notes">
+                <img src="assets/img/galeries/harmoccf/03.webp" width="452" height="249" alt="Saisie des notes dans HarmoCCF" loading="lazy" decoding="async" data-thumbnail="assets/img/galeries/harmoccf/thumbs/03.webp">
+              </a>
+              <figcaption>Saisie des notes</figcaption>
+            </figure>
+            <figure data-gallery-slide>
+              <a href="assets/img/galeries/harmoccf/04.webp" data-gallery-open aria-label="Agrandir l’image · Affichage des résultats">
+                <img src="assets/img/galeries/harmoccf/04.webp" width="458" height="255" alt="Affichage des résultats dans HarmoCCF" loading="lazy" decoding="async" data-thumbnail="assets/img/galeries/harmoccf/thumbs/04.webp">
+              </a>
+              <figcaption>Affichage des résultats</figcaption>
+            </figure>
+          </div>
+        </section>
+        <section class="detail-block" aria-labelledby="contexte">
+          <h2 id="contexte" class="section-title">Contexte</h2>
+          <p>Ce projet pédagogique mettait en pratique la création de formulaires, le traitement des données côté serveur et leur stockage en base.</p>
+        </section>
+        <section class="detail-block" aria-labelledby="missions">
+          <h2 id="missions" class="section-title">Conception et développement</h2>
+          <ul class="detail-steps">
+            <li>
+              <h3>Conception des écrans</h3>
+              <p>Définition des formulaires de connexion et de saisie de notes.</p>
+            </li>
+            <li>
+              <h3>Traitement PHP</h3>
+              <p>Traitement des notes saisies et calcul des moyennes.</p>
+            </li>
+            <li>
+              <h3>Stockage et restitution</h3>
+              <p>Enregistrement dans MySQL et affichage des résultats.</p>
+            </li>
+          </ul>
+        </section>
+        <div class="detail-actions">
+          <a class="button button-secondary" href="./#realisations">Retour aux réalisations</a>
+          <a class="button button-primary" href="cv.html">Voir mon CV</a>
+        </div>
+      </div>
+      <aside class="detail-aside" aria-label="Repères">
+        <section class="detail-block" aria-labelledby="resume">
+          <h2 id="resume" class="section-title">Repères</h2>
+          <dl class="detail-facts">
+            <div>
+              <dt>Contexte</dt>
+              <dd>Projet scolaire</dd>
+            </div>
+            <div>
+              <dt>Année</dt>
+              <dd>2020</dd>
+            </div>
+            <div>
+              <dt>Technologies</dt>
+              <dd>HTML, PHP et MySQL.</dd>
+            </div>
+            <div>
+              <dt>Compétences</dt>
+              <dd>Formulaires web, règles de calcul et enregistrement des résultats.</dd>
+            </div>
+          </dl>
+        </section>
+      </aside>
+    </div>
   </main>
   <footer class="site-footer">
-  <div class="container footer-grid">
-    <div><strong>Wassim Vare</strong><p>Technicien Support IT · Field Support</p></div>
-    <div class="footer-links"><a href="index.html#experience">Expérience</a><a href="index.html#terrain">Terrain</a><a href="index.html#projets">Projets</a><a href="index.html#contact">Contact</a></div>
-    <p>© <span id="year">2026</span> Wassim Vare</p>
-  </div>
-</footer>
-<button class="back-to-top" type="button" aria-label="Retour en haut">↑</button>
-<script src="assets/js/main.js" defer></script>
-  <script src="assets/js/project-gallery.js" defer></script>
+    <div class="container footer-shell">
+      <a class="brand" href="./"><span class="brand-mark" aria-hidden="true">WV</span><span>Wassim Vare</span></a>
+      <nav class="footer-links" aria-label="Liens de pied de page">
+        <a href="./#experience">Expérience</a>
+        <a href="./#realisations">Réalisations</a>
+        <a href="./#contact">Contact</a>
+      </nav>
+      <a class="back-top" href="#haut" data-back-top>
+        <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></svg>
+        <span>Retour en haut</span>
+      </a>
+    </div>
+  </footer>
 </body>
 </html>
