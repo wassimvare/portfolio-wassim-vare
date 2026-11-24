@@ -678,6 +678,35 @@ button { font: inherit; }
   margin: 0;
 }
 
+.client-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 9rem), 1fr));
+  gap: .6rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.client-grid > li {
+  display: grid;
+  align-content: center;
+  padding: .65rem .8rem;
+  border: 1px solid var(--line);
+  border-inline-start: 2px solid var(--accent);
+  border-radius: .65rem;
+  background: var(--bg);
+  color: var(--heading);
+  font-size: .9rem;
+  font-weight: 650;
+  line-height: 1.35;
+}
+
+.client-grid > li > span {
+  color: var(--muted);
+  font-size: .85em;
+  font-weight: 500;
+}
+
 .case-links {
   margin-block: 1.2rem 1.5rem;
 }
