@@ -748,6 +748,23 @@ button { font: inherit; }
   margin-block: 0.35rem 0;
 }
 
+.case-detail-wide {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 43rem) {
+  .case-detail-wide .detail-facts {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .case-detail-wide .detail-facts > div:not(:last-child) {
+    padding-block-end: 0;
+    padding-inline-end: 0.75rem;
+    border-block-end: 0;
+    border-inline-end: 1px solid var(--line);
+  }
+}
+
 .cv-layout {
   grid-template-columns: minmax(15.65rem, 0.43fr) minmax(0, 1fr);
 }
