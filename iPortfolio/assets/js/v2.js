@@ -273,13 +273,16 @@
     const previous = galleryButton('Image précédente', 'previous');
     const next = galleryButton('Image suivante', 'next');
     const count = document.createElement('span');
+    const announcement = document.createElement('span');
     controls.className = 'gallery-controls';
     count.className = 'gallery-count';
-    count.setAttribute('role', 'status');
+    count.setAttribute('aria-hidden', 'true');
+    announcement.className = 'gallery-announcement';
+    announcement.setAttribute('role', 'status');
     previous.addEventListener('click', () => shift(-1));
     next.addEventListener('click', () => shift(1));
     controls.append(previous, count, next);
-    return { controls, count };
+    return { controls, count, announcement, next };
   }
 
   function observeSwipe(element, shift) {
@@ -341,7 +344,7 @@
       caption.className = 'gallery-dialog-caption';
       close.classList.add('gallery-dialog-close');
       dialogControls.controls.classList.add('gallery-dialog-controls');
-      dialogInner.append(close, preview, caption, dialogControls.controls);
+      dialogInner.append(close, preview, caption, dialogControls.controls, dialogControls.announcement);
       dialog.append(dialogInner);
       document.body.append(dialog);
 
@@ -354,6 +357,7 @@
         const previous = slides.find(slide => slide.link === opener);
         const selected = availableSlides[current];
         const focus = previous?.figure.hidden ? selected.link : opener;
+        if (focus !== opener) controls.announcement.textContent = dialogControls.announcement.textContent;
         if (availableSlides.length > 1) revealThumbnail(selected.thumbnail);
         focus.focus({ preventScroll: true });
         opener = undefined;
@@ -395,6 +399,8 @@
         dialogControls.count.textContent = count;
         dialogControls.controls.hidden = single;
       }
+      const activeControls = dialog.open ? dialogControls : controls;
+      activeControls.announcement.textContent = `Image ${current + 1} sur ${availableSlides.length}. ${selected.thumbnailCaption}`;
       if (focusWasOnSlide) selected.link.focus({ preventScroll: true });
       if (focusWasOnThumbnail && selected.thumbnail !== previousFocus) {
         const focus = single ? selected.link : selected.thumbnail;
@@ -473,12 +479,27 @@
       shift(event.key === 'ArrowLeft' ? -1 : 1);
     }
 
+    function handleDialogNavigation(event) {
+      if (event.key !== 'Tab') {
+        handleArrows(event);
+        return;
+      }
+      if (event.altKey || event.ctrlKey || event.metaKey) return;
+
+      const last = dialogControls.controls.hidden ? close : dialogControls.next;
+      const boundary = event.shiftKey ? close : last;
+      if (event.target !== boundary) return;
+      event.preventDefault();
+      (event.shiftKey ? last : close).focus();
+    }
+
     filterButtons.forEach(button => button.addEventListener('click', () => filter(button.dataset.galleryFilter)));
     if (filters) filters.hidden = false;
     gallery.addEventListener('keydown', handleArrows);
-    dialog.addEventListener('keydown', handleArrows);
+    dialog.addEventListener('keydown', handleDialogNavigation);
     gallery.classList.add('is-enhanced');
     filter('all');
+    gallery.append(controls.announcement);
   }
 
   setupTheme();
