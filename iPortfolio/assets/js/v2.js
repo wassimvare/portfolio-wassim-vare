@@ -502,6 +502,205 @@
     gallery.append(controls.announcement);
   }
 
+  function setupNetworkBackground() {
+    const canvas = document.createElement('canvas');
+    const context = canvas.getContext('2d');
+    if (!context) return;
+    const headerCanvas = document.createElement('canvas');
+    const headerContext = header?.matches('.site-header') ? headerCanvas.getContext('2d') : null;
+
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const compact = window.matchMedia('(max-width: 700px), (pointer: coarse)');
+    const pointerRange = 120;
+    let particles = [];
+    let width = 0;
+    let height = 0;
+    let connectionRange = 0;
+    let pointer = null;
+    let frame = 0;
+    let previousFrame;
+    let needsResize = true;
+    // Use a shared time origin and seed so the pattern carries across page loads.
+    let time = Date.now() / 1000;
+
+    canvas.className = 'network-background';
+    canvas.setAttribute('aria-hidden', 'true');
+    document.body.prepend(canvas);
+    document.body.classList.add('has-network-background');
+    if (headerContext) {
+      headerCanvas.className = 'network-header-background';
+      headerCanvas.setAttribute('aria-hidden', 'true');
+      header.prepend(headerCanvas);
+    }
+
+    function resize() {
+      needsResize = false;
+      width = canvas.clientWidth;
+      height = canvas.clientHeight;
+      if (!width || !height) return;
+
+      const area = width * height;
+      const scale = Math.min(window.devicePixelRatio || 1, 1.5, Math.sqrt(3_000_000 / area));
+      canvas.width = Math.max(1, Math.floor(width * scale));
+      canvas.height = Math.max(1, Math.floor(height * scale));
+      context.setTransform(canvas.width / width, 0, 0, canvas.height / height, 0, 0);
+      if (headerContext) {
+        headerCanvas.width = canvas.width;
+        headerCanvas.height = Math.min(canvas.height, Math.ceil(header.clientHeight * canvas.height / height));
+      }
+
+      const maxParticles = compact.matches ? 30 : 76;
+      const areaPerParticle = compact.matches ? 23_000 : 16_500;
+      const count = Math.max(10, Math.min(maxParticles, Math.round(area / areaPerParticle)));
+      const columns = Math.ceil(Math.sqrt(count * width / height));
+      const rows = Math.ceil(count / columns);
+      let seed = 528;
+      function random() {
+        seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0;
+        return seed / 4294967296;
+      }
+
+      connectionRange = Math.max(compact.matches ? 145 : 170, Math.sqrt(area / count) * 1.25);
+      particles = Array.from({ length: count }, (_, index) => {
+        const row = Math.floor(index / columns);
+        const rowLength = Math.min(columns, count - row * columns);
+        return {
+          originX: (index % columns + .12 + random() * .76) * width / rowLength,
+          originY: (row + .12 + random() * .76) * height / rows,
+          phase: random() * Math.PI * 2,
+          speed: .14 + random() * .15,
+          drift: 16 + random() * 20,
+          radius: .85 + random() * .55,
+          cyan: random() > .45,
+          x: 0,
+          y: 0,
+        };
+      });
+    }
+
+    function glow(x, y, radius, color, opacity) {
+      context.fillStyle = color;
+      context.globalAlpha = opacity * .16;
+      context.beginPath();
+      context.arc(x, y, radius * 2.6, 0, Math.PI * 2);
+      context.fill();
+      context.globalAlpha = opacity;
+      context.beginPath();
+      context.arc(x, y, radius, 0, Math.PI * 2);
+      context.fill();
+    }
+
+    function draw() {
+      const light = root.dataset.theme === 'light';
+      const blue = light ? '#246fbf' : '#4ca3ff';
+      const cyan = light ? '#007d9d' : '#6be5ff';
+      const rangeSquared = connectionRange ** 2;
+      const signalFrequency = compact.matches ? 7 : 11;
+      context.clearRect(0, 0, width, height);
+      context.strokeStyle = blue;
+      context.lineWidth = .75;
+
+      for (const particle of particles) {
+        const angle = time * particle.speed + particle.phase;
+        particle.x = particle.originX + Math.cos(angle) * particle.drift;
+        particle.y = particle.originY + Math.sin(angle * .83) * particle.drift;
+        if (pointer) {
+          const dx = pointer.x - particle.x;
+          const dy = pointer.y - particle.y;
+          const distance = Math.hypot(dx, dy);
+          const strength = Math.max(0, 1 - distance / pointerRange) * .11;
+          particle.x += dx * strength;
+          particle.y += dy * strength;
+        }
+      }
+
+      for (let i = 0; i < particles.length; i++) {
+        const start = particles[i];
+        for (let j = i + 1; j < particles.length; j++) {
+          const end = particles[j];
+          const dx = end.x - start.x;
+          const dy = end.y - start.y;
+          const distanceSquared = dx * dx + dy * dy;
+          if (distanceSquared >= rangeSquared) continue;
+
+          const proximity = 1 - Math.sqrt(distanceSquared) / connectionRange;
+          context.globalAlpha = (light ? .22 : .32) * proximity;
+          context.beginPath();
+          context.moveTo(start.x, start.y);
+          context.lineTo(end.x, end.y);
+          context.stroke();
+
+          if ((i * 17 + j * 13) % signalFrequency !== 0) continue;
+          const phase = ((time + i * .91 + j * 1.73) % 7) / 2.8;
+          if (phase >= 1) continue;
+          const progress = (i + j) % 2 ? phase : 1 - phase;
+          const fade = Math.sin(phase * Math.PI) * Math.min(1, proximity * 5);
+          glow(start.x + dx * progress, start.y + dy * progress, 1.4, cyan, fade * (light ? .43 : .72));
+        }
+      }
+
+      for (const particle of particles) {
+        glow(particle.x, particle.y, particle.radius, particle.cyan ? cyan : blue, light ? .32 : .53);
+      }
+
+      // The sticky header blurs the background underneath it. Reuse the same network above that tint.
+      if (headerContext && headerCanvas.height) {
+        const { width: w, height: h } = headerCanvas;
+        headerContext.clearRect(0, 0, w, h);
+        headerContext.drawImage(canvas, 0, 0, w, h, 0, 0, w, h);
+      }
+    }
+
+    function schedule() {
+      if (!frame && !document.hidden) frame = window.requestAnimationFrame(render);
+    }
+
+    function render(timestamp) {
+      frame = 0;
+      const interval = 1000 / (compact.matches ? 30 : 60);
+      const elapsed = previousFrame === undefined ? 0 : timestamp - previousFrame;
+      if (!needsResize && !reducedMotion.matches && previousFrame !== undefined && elapsed < interval - 1) {
+        schedule();
+        return;
+      }
+
+      if (!reducedMotion.matches) time += Math.min(elapsed / 1000, .1);
+      previousFrame = timestamp;
+      if (needsResize) resize();
+      if (!width || !height) return;
+      draw();
+      if (!reducedMotion.matches) schedule();
+    }
+
+    function updatePlayback() {
+      window.cancelAnimationFrame(frame);
+      frame = 0;
+      previousFrame = undefined;
+      pointer = null;
+      schedule();
+    }
+
+    function requestResize() {
+      needsResize = true;
+      schedule();
+    }
+
+    watchMedia(reducedMotion, updatePlayback);
+    watchMedia(compact, requestResize);
+    document.addEventListener('visibilitychange', updatePlayback);
+    window.addEventListener('resize', requestResize, { passive: true });
+    window.addEventListener('pointermove', event => {
+      if (event.pointerType === 'mouse' && !reducedMotion.matches) {
+        pointer = { x: event.clientX, y: event.clientY };
+      }
+    }, { passive: true });
+    window.addEventListener('pointerout', event => {
+      if (!event.relatedTarget) pointer = null;
+    }, { passive: true });
+    new MutationObserver(schedule).observe(root, { attributeFilter: ['data-theme'] });
+    schedule();
+  }
+
   setupTheme();
   setupMenu();
   setupScroll();
@@ -509,4 +708,5 @@
   setupContact();
   document.querySelectorAll('[data-gallery]').forEach(setupGallery);
   document.querySelectorAll('[data-year]').forEach(year => { year.textContent = new Date().getFullYear(); });
+  setupNetworkBackground();
 })();
